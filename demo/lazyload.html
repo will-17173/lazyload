@@ -1,0 +1,57 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Lazyload</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no" />
+    <script src="../vendor/seajs/sea.js"></script>
+    <script src="../vendor/seajs/seajs-text.js"></script>
+    <!-- <script src="http://ue.17173cdn.com/a/lib/pandora.js"></script>-->
+    <script type="text/javascript">
+      seajs.config({
+        'base': '../sea-modules/',
+        'alias': {
+          '$': 'jquery/jquery/2.1.0/jquery',
+          "handlebars": "gallery/handlebars/1.3.0/handlebars",
+          'importstyle': 'pandora/importstyle/1.0.0/importstyle',
+          'base': 'pandora/base/1.0.0/base',
+          'widget': 'pandora/widget/1.0.0/widget',
+          'spin': 'gallery/spin/2.0.0/spin'
+        }
+      });
+    </script>
+    <style type="text/css">
+    html, body, #list{ height: 100%;}
+    *{padding: 0; margin:0; list-style: none; font-size: 14px;}
+    img{ width: 100%;}
+
+    </style>
+</head>
+
+<body>
+<div id="list">
+  <img src="placeholder.jpg" data-src="http://images.17173.com/2015/news/2015/05/17/mj0517jt03.jpg">
+  <img src="placeholder.jpg" data-src="http://myzzz.info/lazyload/2.jpg">
+  <img src="placeholder.jpg" data-src="http://myzzz.info/lazyload/3.jpg">
+  <img src="placeholder.jpg" data-src="http://myzzz.info/lazyload/4.jpg">
+  <img src="placeholder.jpg" data-src="http://myzzz.info/lazyload/5.jpg">
+  <img src="placeholder.jpg" data-src="http://myzzz.info/lazyload/6.jpg">
+  <img src="placeholder.jpg" data-src="http://myzzz.info/lazyload/7.jpg">
+  <script type="text/javascript" data-type="script" data-src="./demo.js"></script>
+</div>
+
+
+ 
+<script type="text/javascript">
+    seajs.use(['../src/lazyload'],function(Lazyload){
+      new Lazyload({
+        element: '#list',
+        dataAttr: 'src',
+        threshold: 20
+      })
+    });   
+</script>
+</body>
+
+</html>
